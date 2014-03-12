@@ -1,0 +1,50 @@
+<html ng-app="ExcelExport">
+<head>
+  <meta charset="utf-8" />
+  <script type="text/javascript" src="./script/jquery.min.js"></script>
+  <script type="text/javascript" src="./script/xlsx.js"></script>
+  <script type="text/javascript" src="./script/jszip-combined.js"></script>  
+  <script type="text/javascript" src="./script/xls.js"></script>
+  <script type="text/javascript" src="./script/angular.js"></script>
+  <script type="text/javascript" src="./script/controller.min.js"></script>
+  <script type="text/javascript" src="./script/angularbootstrap.js"></script>
+  <link rel="stylesheet" type="text/css" href="./style/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./style/960_24_col.css">
+  <link rel="stylesheet" type="text/css" href="./style/style.css">
+
+</head>
+<body style="padding:20px">
+
+  <div ng-controller="ExcelController">
+    <div id="loader" class="center" ng-show="loading">
+      <img src="./images/ajax-loader.gif"/>
+    </div>
+
+    <div class="container_24">
+      <div class="grid_24 pull_2">
+
+        <div class="clear" style="height:10px"></div>
+        <p>Select a File to Load : </p>
+        <input id="inputFileToLoad" class="btn" type="file" onchange="angular.element(this).scope().loadFile(this);"/>
+        <div class="clear" style="height:7px"></div>
+              
+        <div class="clear" style="height:10px"></div>	
+        <div ng-show="DataShow" class="grid_24 pull_1">
+          <table class="table table-bordered" style="font-size:12px;width:auto">
+            <thead>  
+              <tr >  
+                <th ng-repeat="headerData in DispData.columnHeader">{{headerData}}</th>  
+              </tr>  
+            </thead>  
+            <tr ng-repeat="data in DispData.ExcelData">
+              <td ng-repeat="rowdata in data" style="width:auto">
+                {{rowdata}}
+              </td>                    
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
