@@ -5,3 +5,4 @@ ExcelToJson
 - uses xlsx.js http://blog.innovatejs.com/?p=227 and xls.js.
 - compatible with both .xls and .xlsx file format.
 - built on top of angularjs
+- Pure Javascript implementation.
